@@ -1,4 +1,4 @@
-# Vehicle Routing
+# Simulation of Vehicle Routing Problem
 
 This application simulates the Vehicle Routing Problem and several of its variations.
 It is a serverless cloud application built using Microsoft Azure that allows users to enter vehicles, locations and algorithms and run a variety of Vehicle Routing Algorithms. 
@@ -67,7 +67,3 @@ Unit testing was performed using an older version of the Python servers. These h
 * [Google OR Tools](https://developers.google.com/optimization) - Used for implementing algorithms
 * [Flask](https://flask.palletsprojects.com/en/1.1.x/) - Used for creating backend servers
 * [imgurpython](https://github.com/Imgur/imgurpython) - Used to upload images to Imgur
-
-## Author
-
-**Suyash Dubey**
