@@ -5,7 +5,7 @@ module.exports = async function (context, req) {
 
     const inputTable=context.bindings.inputTable;
 
-    let connectionString = "DefaultEndpointsProtocol=https;AccountName=vehicleroutingproblem;AccountKey=8BR0Aye5Zv31W/vNuMKziVgEomNPodbXUXmhAUGjAk7dqJ4kbKmh3/4h4IDn+q4o92t/mi0RYSfAOmNY7vtKsg==;EndpointSuffix=core.windows.net";
+    let connectionString = "";
     let tableService = azure.createTableService(connectionString);
     
     inputTable.forEach(function(location) {
