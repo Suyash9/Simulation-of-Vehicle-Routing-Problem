@@ -1,0 +1,36 @@
+﻿{
+  "bindings": [
+    {
+      "authLevel": "function",
+      "type": "httpTrigger",
+      "direction": "in",
+      "name": "req",
+      "methods": [
+        "get",
+        "post"
+      ]
+    },
+    {
+      "type": "http",
+      "direction": "out",
+      "name": "res"
+    },
+    {
+      "type": "table",
+      "name": "inputTable",
+      "tableName": "Algorithms",
+      "partitionKey": "{algorithm_name}",
+      "take": 50,
+      "connection": "vehicleroutingproblem_STORAGE",
+      "direction": "in"
+    },
+    {
+      "type": "table",
+      "name": "outputTable",
+      "tableName": "Algorithms",
+      "connection": "vehicleroutingproblem_STORAGE",
+      "direction": "out"
+    }
+  ],
+  "disabled": false
+}

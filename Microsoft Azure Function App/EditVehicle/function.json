@@ -1,0 +1,37 @@
+﻿{
+  "bindings": [
+    {
+      "authLevel": "function",
+      "type": "httpTrigger",
+      "direction": "in",
+      "name": "req",
+      "methods": [
+        "get",
+        "post"
+      ]
+    },
+    {
+      "type": "http",
+      "direction": "out",
+      "name": "res"
+    },
+    {
+      "type": "table",
+      "name": "inputTable",
+      "tableName": "Vehicles",
+      "partitionKey": "{vehicle_name}",
+      "rowKey": "{capacity}",
+      "take": 50,
+      "connection": "vehicleroutingproblem_STORAGE",
+      "direction": "in"
+    },
+    {
+      "type": "table",
+      "name": "outputTable",
+      "tableName": "Vehicles",
+      "connection": "vehicleroutingproblem_STORAGE",
+      "direction": "out"
+    }
+  ],
+  "disabled": false
+}
