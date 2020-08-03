@@ -1,0 +1,34 @@
+*{
+    box-sizing: border-box;
+    font-family: "Roboto", Arial, sans-serif;
+}
+
+@font-face{
+    font-family: "Roboto";
+    src: local("Roboto"), url('https://fonts.googleapis.com/css?family=Roboto&display=swap');
+}
+
+.header{
+    text-align: center;
+}
+
+.algo_table {
+    border-collapse: collapse;
+    width: 100%;
+}
+  
+.algo_table td, .algo_table th {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: center;
+}
+  
+.algo_table tr:nth-child(odd){background-color: #D3EEEE;}
+  
+.algo_table th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: center;
+    background-color: #3b5998;
+    color: white;
+}

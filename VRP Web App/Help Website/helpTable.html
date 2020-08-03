@@ -1,0 +1,244 @@
+<head>
+  <link rel="stylesheet" type="text/css" href="algoTable.css">
+  <title>Algorithm Help</title>
+</head>
+<h1 class="header">Algorithms for Vehicle Routing Problem</h1>
+<p>
+  The Vehicle Routing Problem (VRP) is one of the most studied optimisation problems of all time. It involves finding the best route for a fleet of vehicles to deliver goods to customers.
+  The VRP is a node routing problems since the service it provides is associated with nodes or locations. 
+  It is the simplest type of node routing problem, in which a single vehicle visits several locations, with no limitations on the vehicle's capacity.
+  In most cases, it is also assumed that the routes start and end at the same depot. 
+  Vehicles serve several different customer locations, each of which, in
+  certain variations, have distinct service requirements (pick up or delivery). It is also noteworthy
+  that each route identified in the VRP is a Hamiltonian cycle. This is because on a particular
+  route, each location is visited exactly once and the start and end of each route are at the same
+  location, i.e., at the depot.
+  <br/>
+  <br/>
+  There are 9 variations of the VRP that have been implemented for this application, and they are described in the table below.
+  <br/>
+  <br/>
+  <b>Warning: If parameters are not specified appropriately, results will be incorrect.</b>
+</p>
+<table class="algo_table">
+<tr>
+  <th><b>Algorithm</b></th>
+  <th><b>Parameters<br/>(Name: Input Type)</b></th>
+  <th><b>Description</b></th>
+</tr>
+<tr>
+  <td><b>Basic Vehicle Routing Problem</b></td>
+  <td><b>Depot Location (Default 0):</b> Number</td>
+  <td>
+    The standard Vehicle Routing Problem with no constraints and penalties and just the depot location as parameter.
+    <br/>
+    <br/>
+    <b>Depot Location Input Example for 4 locations:</b> 0
+  </td>
+</tr>
+<tr>
+  <td><b>Capacitated Vehicle Routing Problem<br>(CVRP)</b></td>
+  <td>
+    <b>Location Demands:</b> Numbers
+    <br/>
+    <br/>
+    <b>Depot Location (Default 0):</b> Number
+  </td>
+  <td width="55%">
+    This is a variation of the VRP in
+    which each vehicle's capacity for carrying goods is limited, and this limit should not be
+    exceeded for any of the vehicles. It is also assumed that all vehicles are stationed at a
+    single depot and that each route will begin and end at the depot. Additional constraints
+    enforced are that each customer's location will be visited only once and that the total
+    demand of a route will not exceed the capacity of the vehicle.
+    <br/>
+    <br/>
+    <b>Location Demands Input Example for 4 locations:</b> 0, 4, 2, 1
+    <br/>
+    <br/>
+    <b>Depot Location Input Example for 4 locations:</b> 1
+  </td>
+</tr>
+<tr>
+  <td><b>Capacitated Vehicle Routing Problem with Penalties</b></td>
+  <td>
+    <b>Location Demands:</b> Numbers
+    <br/>
+    <br/>
+    <b>Depot Location (Default 0):</b> Number
+  </td>
+  <td>This is a slight variation of the Capacitated VRP in which new costs, called penalties are introduced at all locations. 
+    Whenever a visit to a location is dropped, the penalty is added to the total distance travelled. 
+    The algorithm finds a route that minimises the total distance plus the sum of the penalties for all dropped locations.
+    <br/>
+    <br/>
+    <b>Location Demands Input Example for 4 locations:</b> 0, 7, 4, 2
+    <br/>
+    <br/>
+    <b>Depot Location Input Example for 4 locations:</b> 2
+  </td>
+</tr>
+<tr>
+  <td><b>Open Vehicle Routing Problem<br>(OVRP)</b></td>
+  <td><b>Depot Location (Default 0):</b> Number</td>
+  <td>
+    In the Open VRP, vehicles do not start or return to the depot after they have
+    completed their journeys along their respective routes. Since the vehicles
+    do not return to the starting depot, in the OVRP each route is a Hamiltonian path instead
+    of a Hamiltonian cycle. This algorithm is useful in cases where organisations do not
+    own a convoy of vehicles, or their convoy is insufficient and the organisation
+    needs to outsource transport services.
+    <br/>
+    <br/>
+    <b>Depot Location Input Example for 4 locations:</b> 3
+  </td>
+</tr>
+<tr>
+  <td><b>Pickups and Deliveries Vehicle Routing Problem</b></td>
+  <td>
+    <b>Pickups and Deliveries:</b> Pairs of Locations
+    <br/>
+    <br/>
+    <b>Depot Location (Default 0):</b> Number
+  </td>
+  <td>
+    The aim is to identify routes for vehicles to
+    complete both pickups and deliveries of items between specified locations. The pickup and
+    delivery locations for a particular item are distinct. It is assumed that the vehicles start
+    and end their routes at the same depot. In the case where people are being transported,
+    the problem is also called the dial-a-ride problem.
+    Theoretically in PDP, it is assumed that an unlimited number of vehicles will be available,
+    and every customer will be delivered their items. However, this is not practical and
+    therefore identifying optimal routes is important to maximise customer deliveries with a
+    limited number of vehicles.
+    <br/>
+    <br/>
+    <b>Pickups and Deliveries Input Example for 4 locations:</b> (1, 2); (3, 2); (1, 3);
+    <br/>
+    <br/>
+    <b>Depot Location Input Example for 4 locations:</b> 0
+  </td>
+</tr>
+<tr>
+  <td><b>Vehicle Routing Problem with Initial Routes</b></td>
+  <td>
+    <b>Initial Routes: </b> Lists of Locations
+    <br/>
+    <br/>
+    <b>Depot Location (Default 0):</b> Number
+  </td>
+  <td>
+    In this problem, a set of initial routes is specified for the vehicles in the VRP. The algorithm is run to obtain the initial
+    solution routes, after which the basic VRP algorithm is run. This is useful for cases where a good solution to the problem is 
+    already known, and where comparing performance of different possible routes is required.
+    <br/>
+    <br/>
+    <b>Initial Routes Input Example for 2 Vehicles: </b> (0, 2, 1, 0); (3, 0, 1)
+    <br/>
+    <br/>
+    <b>Depot Location Input Example for 4 locations:</b> 2
+  </td>
+</tr>
+<tr>
+  <td><b>Vehicle Routing Problem with Starts and Ends</b></td>
+  <td>
+    <b>Start Locations: </b> List of Locations
+    <br/>
+    <br/>
+    <b>End Locations: </b> List of Locations
+    <br/>
+    <br/>
+    <b>Depot Location (Default 0):</b> Number
+  </td>
+  <td>
+    In all problems except the Open VRP, it is assumed that all vehicles start and end at a single location, the depot. In this
+    variation of the VRP, different start and end locations can be set for each vehicle. In many cases, the total distance of routes
+    is shorter since the vehicles are not required to start or end at the depot.
+    <br/>
+    <br/>
+    <b>Start Locations Example for 2 Vehicles and 4 Locations: </b> 1, 2
+    <br/>
+    <br/>
+    <b>End Locations Example for 2 Vehicles and 4 Locations: </b> 0, 3
+    <br/>
+    <br/>
+    <b>Depot Location Input Example for 4 locations:</b> 1
+</tr>
+<tr>
+  <td><b>Vehicle Routing Problem with Time Windows<br>(VRPTW)</b></td>
+  <td><b>Time Windows:</b> Pairs of Numbers
+    <br/>
+    <br/>
+    <b>Average Speed:</b> Number
+    <br/>
+    <br/>
+    <b>Depot Location (Default 0):</b> Number
+  </td>
+  <td>
+    A service time window
+    (TW) constraint is imposed on the VRP, in which the visiting time of a vehicle at a location
+    is restricted according to the specified time period. This enforces that each customer must
+    be served during the time period specified. If the vehicle reaches the customer destination
+    before the start of its time window, the vehicle should wait until the specified service time
+    begins. Similarly, the constraint is violated if the vehicle arrives after the time window has
+    ended. It is assumed that all customers require the same type of service (either pickup or
+    delivery but not both) and vehicles start and end their routes at the same depot. Another
+    constraint that is strictly imposed is that the vehicle capacity should not be exceeded at
+    any time.
+    <br/>
+    <br/>
+    <b>Time Windows Input Example for 4 locations:</b> (7, 12); (10, 15); (16, 18); (10, 13)
+    <br/>
+    <br/>
+    <b>Average Speed Input Example for 4 locations:</b> 50
+    <br/>
+    <br/>
+    <b>Depot Location Input Example for 4 locations:</b> 2
+  </td>
+</tr>
+<tr>
+  <td><b>Vehicle Routing Problem with Time Windows <br/> with Resource Constraints</b></td>
+  <td>
+    <b>Time Windows:</b> Pairs of Numbers
+    <br/>
+    <br/>
+    <b>Average Speed:</b> Number
+    <br/>
+    <br/>
+    <b>Vehicle Load Time:</b> Number
+    <br/>
+    <br/>
+    <b>Vehicle Unload Time:</b> Number
+    <br/>
+    <br/>
+    <b>Depot Capacity:</b> Number
+    <br/>
+    <br/>
+    <b>Depot Location (Default 0):</b> Number
+  </td>
+  <td>
+    A variation of VRPTW that also has constraints at the depot: all vehicles need to be loaded before departing the depot and unloaded upon return. 
+    Since there are only two available loading docks, at most two vehicles can be loaded or unloaded at the same time.
+    As a result, some vehicles must wait for others to be loaded, delaying their departure from the depot. 
+    The problem is to find optimal vehicle routes for the VRPTW that also meet the loading and unloading constraints at the depot.
+    <br/>
+    <br/>
+    <b>Time Windows Input Example for 4 locations:</b> (2, 6); (1, 5); (9, 12); (5, 18)
+    <br/>
+    <br/>
+    <b>Average Speed Input Example for 4 locations:</b> 80
+    <br/>
+    <br/>
+    <b>Vehicle Load Time Input Example for 4 locations:</b> 5
+    <br/>
+    <br/>
+    <b>Vehicle Unload Time Input Example for 4 locations:</b> 7
+    <br/>
+    <br/>
+    <b>Depot Capacity Input Example for 4 locations:</b> 4
+    <br/>
+    <br/>
+    <b>Depot Location Input Example for 4 locations:</b> 3
+  </td>
+</tr>
+</table>

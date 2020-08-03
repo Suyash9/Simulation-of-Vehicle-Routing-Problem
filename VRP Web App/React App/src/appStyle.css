@@ -1,0 +1,351 @@
+*{
+    box-sizing: border-box;
+    font-family: "Roboto", Arial, sans-serif;
+}
+  
+@font-face{
+    font-family: "Roboto";
+    src: local("Roboto"), url('https://fonts.googleapis.com/css?family=Roboto&display=swap');
+}
+
+.grid {
+    display: grid;
+    border: 1px solid black;
+    grid-column: 1 / 4;
+    position: fixed;
+    height: 100vh;
+    width: 100%;
+}
+  
+.vehicle {
+    grid-area: 1 / 1 / span 1 / span 2;
+    border: 1px solid black;
+    overflow:auto;
+    display:inline-block;
+}
+
+
+.location {
+    grid-area: 2 / 1 / span 1 / span 2;
+    border: 1px solid black;
+    overflow:auto;
+    display:inline-block;
+}
+  
+.algorithm {
+    grid-area: 1 / 3 / span 2 / span 3;
+    border: 1px solid black;
+}
+
+.veh_btn, .loc_btn{
+    background-color: red;
+    border: none;
+    color: white;
+    text-decoration: none;
+    margin-left: 5%;
+    font-size: 16px;
+    height: 35px;
+    width: 140px;
+    border-radius: 20px;
+    cursor: default;
+    text-align: center;
+    cursor: pointer;
+}
+
+.select_box select {
+    width: 280%;
+    height: 150px;
+    margin-left: 10%;
+    margin-top: 10%;
+    font-size: medium;
+    padding-left: 4px;
+    padding-top: 4px;
+    border-color: black;
+}
+
+.select option{
+    padding: 5px;
+}
+
+.select option:hover{
+    background-color: #d3d3d3;
+}
+
+.select_box select_empty{
+    width: 280%;
+    height: 200px;
+    margin-left: 10%;
+    margin-top: 10%;
+    font-size: medium;
+    padding-left: 4px;
+    padding-top: 4px;
+    border-color: black;
+}
+
+.select_empty option{
+    padding: 5px;
+    color: black;
+}
+
+.modal_veh, .modal_loc, .modal_para, .modal_addalgo {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    padding-top: 20vh;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgb(0,0,0);
+    background-color: rgba(0,0,0,0.4);
+}
+
+.add_algo_btn{
+    background-color: #4CAF50;
+    color: white;
+    padding: 16px 20px;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    margin-bottom:10px;
+    opacity: 0.8;
+}
+  
+.modal-content {
+    background-color: #fefefe;
+    margin: auto;
+    padding: 15px;
+    border: 1px solid #888;
+    width: 22%;
+}
+
+.modal-content-add-algo {
+    background-color: #fefefe;
+    margin: -70px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 15px;
+    border: 1px solid #888;
+    width: 90%;
+    height:88vh;
+}
+
+.add_algo_text{
+    width: 98%;
+    height: 42vh;
+    font-size: 14px;
+    resize: none;
+    background-color: #f1f1f1;
+}
+
+.add_algo_text:focus {
+    width: 98%;
+    height: 42vh;
+    font-size: 14px;
+    resize: none;
+    background-color: white;
+}
+
+.add_algo_btn{
+    background-color: #4CAF50;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    cursor: pointer;
+    width: 20%;
+    margin-bottom: 10px;
+    opacity: 0.8;
+    font-size: medium;
+    margin-left: 35.4%;
+}
+
+.algo_upload_btn{
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    cursor: pointer;
+    width: 20%;
+    margin-bottom: 10px;
+    opacity: 0.8;
+    font-size: medium;
+    background-color: #3385FF;
+    display: inline-block;
+    text-align: center;
+}
+
+.add_algo_btn:hover, .algo_upload_btn:hover {
+    opacity: 1;
+}
+  
+.close_loc, .close_veh, .close_edit_veh, .close_para, .close_add_algo {
+    color: #aaaaaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+  
+.close_loc:hover, .close_loc:focus, .close_veh:hover, .close_veh:focus,
+.close_edit_veh:hover, .close_edit_veh:focus, 
+.close_para:hover, .close_para:focus,
+.close_add_algo:hover, .close_add_algo:focus{
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.add_modal {
+    max-width: 300px;
+    padding: 10px;
+    background-color: white;
+}
+  
+.add_modal input[type=text], .add_modal input[type=number] {
+    width: 100%;
+    padding: 15px;
+    margin: 5px 0 22px 0;
+    border: none;
+    background: #f1f1f1;
+}
+  
+.add_modal input[type=text]:focus, .add_modal input[type=number]:focus {
+    background-color: white;
+    outline: none;
+}
+  
+.add_modal .btn {
+    background-color: #4CAF50;
+    color: white;
+    padding: 16px 20px;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    margin-bottom:10px;
+    opacity: 0.8;
+}
+  
+.add_modal .cancel {
+    background-color: red;
+}
+  
+.add_modal .btn:hover {
+    opacity: 1;
+}
+
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button { 
+  -webkit-appearance: none; 
+  margin: 0; 
+}
+
+.algo_btn{
+    background-color: red;
+    border: none;
+    color: white;
+    text-decoration: none;
+    margin-left: 5%;
+    font-size: 16px;
+    height: 40px;
+    width: 140px;
+    border-radius: 20px;
+    cursor: default;
+    text-align: center;
+    cursor: pointer;
+}
+
+.select_algo{
+    background-color: #00B5A1;
+    text-overflow: ellipsis;
+    color: white;
+    margin-left: 14%;
+    font-size: 17px;
+    height: 40px;
+    border-radius: 20px;
+    text-align: center;
+    cursor: pointer;
+}
+
+.graph{
+    height: 250px;
+    width: 500px;
+    margin-left: 5%;
+    margin-top: -32.5%;
+    border: 1px solid black;
+    position: fixed;
+    background-color: #EEC4CB;
+    overflow: "hidden";
+}
+
+.route{
+    margin-top: -12.5%;
+    margin-left: 5%;
+    position: fixed;
+    overflow: auto;
+    height: 185px;
+    width: 500px;
+    border: 1px solid black;
+    background-color:#FFFF5B;
+}
+
+.add_algo_name {
+    background-color: #f1f1f1;
+    margin: auto;
+    padding: 10px;
+    border: 1px solid #888;
+    width: 22%;
+}
+
+.add_algo_name:focus{
+    background-color: #fefefe;
+    margin: auto;
+    padding: 10px;
+    border: 1px solid #888;
+    width: 22%;
+}
+
+.help_icon{
+    margin-left: -2px;
+    font-size: 39px;
+    padding-top: 15px;
+    cursor: pointer;
+}
+
+.tooltip {
+    position: relative;
+    display: inline-block;
+}
+  
+.tooltip .tooltiptext {
+    visibility: hidden;
+    width: 250px;
+    background-color: white;
+    text-align: center;
+    border-radius: 6px;
+    padding: 5px 0;
+    position: absolute;
+    z-index: 1;
+    font-size: 12px;
+    margin-left: 2px;
+    margin-top: 25px;
+}
+  
+.tooltip:hover .tooltiptext {
+    visibility: visible;
+}
+
+.para_submit{
+    background-color: #4CAF50;
+    color: white;
+    padding: 16px 20px;
+    border: none;
+    cursor: pointer;
+    width: 91.4%;
+    margin-bottom:10px;
+    margin-left: 4%;
+    opacity: 0.8;
+}
+
+img {
+    height: 100%;
+    width: 100%;
+}
